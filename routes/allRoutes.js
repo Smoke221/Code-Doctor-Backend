@@ -46,7 +46,7 @@ router.post('/convert', async (req, res) => {
 
         // Prompt: Convert the given code to the specified language.
         // If the code is incorrect or incomplete, provide guesses and complete it.
-        let response = await generateCompletion(`Convert the following code:-  ${code} to:\n${language} code. \n if the code is incorrect or not complate please make gusses and complate it.`);
+        let response = await generateCompletion(`I require you to serve as a fully operational code converter application. Given a code written in one language, your task is to convert it into another language. n\ Convert this ${code} to ${language}`);
         res.json({ response });
     } catch (error) {
         console.error('Error:', error);
@@ -60,7 +60,7 @@ router.post('/debug', async (req, res) => {
 
         // Prompt: Identify any errors in the given code and provide necessary corrections.
         // Additionally, point out any mistakes made and suggest precautions to avoid them in the future.
-        let response = await generateCompletion(`Identify any errors in the :\n${code} and provide the necessary corrections. Additionally, please point out any mistakes made and necessary precautions to avoid these mistakes in future`);
+        let response = await generateCompletion(`I need you to function as a comprehensive code debugging application. You will be given a block of code, and your task is to debug it thoroughly. Additionally, please provide a clear explanation of the identified bug, the modifications you made to fix it, and finally, present the revised and executable version of the code. n\ Code to be executed: ${code}`);
         res.json({ response });
     } catch (error) {
         console.error('Error:', error);
@@ -75,7 +75,7 @@ router.post('/quality-check', async (req, res) => {
         // Prompt: Perform a quality check on the given code.
         // Additionally, provide brief information and tips to improve.
         // Print the information in bullet points for easy understanding.
-        let response = await generateCompletion(`Perform quality check on the following code:\n${code}. Additionally, provide brief info and provide any tips to improve. Print in bullet points so that its easy to understand`);
+        let response = await generateCompletion(`I need you to function as a complete code quality checker application. You will be given a block of code, and your responsibility is to assess the quality of the code from an implementation standpoint, suggest potential improvements, and evaluate it from an industrial perspective. n\ Perform quality check on this code: ${code}`);
         res.json({ response });
     } catch (error) {
         console.error('Error:', error);
